@@ -1,8 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-int cnt;
-vector <int> v1; // 요소 저장
-
 /**
  * 만약 stack이 비워져있으면
 	자기자신 넣기
@@ -18,31 +15,25 @@ st.top() > 자기자신
  * 
 */
 int main (void) {
-    cin >> cnt;
-    vector <int> v2(cnt, 0); // 오큰수 저장
+    int n;
+    cin >> n;
+    vector <int> v1(n); // 요소 저장
+    vector <int> v2(n); // 오큰수 저장
     stack <int> st;
-    while (cnt--) {
-        int temp;
-        v1.push_back(temp);
+    for (int i = 0; i < n; i++) cin >> v1[i];
+
+    for (int i = n - 1; i >= 0; i--) {
+       while (!st.empty() && st.top() < v1[i]) {
+            st.pop();
+       }
+       if (st.empty()) v2[i] = -1;
+       else v2[i] = st.top();
+
+       st.push(v1[i]);
     }
 
-    for (int i = cnt - 1; cnt >= 0; cnt--) {
-        if (st.size() == 0) {
-            st.push(v1[i]);
-            v2[i] = -1;
-        }
-        else if () {
-
-
-        }
-
-        else if () {
-
-
-        }
-
-        
-
+    for (int i = 0; i < n; i++) {
+        cout << v2[i] << " ";
     }
     return 0;
 }
