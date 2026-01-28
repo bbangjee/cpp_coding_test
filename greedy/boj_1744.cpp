@@ -17,12 +17,6 @@ int main()
         v[i] = temp;
     }
 
-    sort(v.begin(), v.end());
-
-    for (int i = 0; i < n - 2; i++)
-    {
-        // cout << v[i] << " ";
-    }
-
+    cout << sum << '\n';
     return 0;
 }
